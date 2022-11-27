@@ -41,7 +41,6 @@ inputClaveTarjeta.addEventListener('keydown', (e)=>{
     inputClaveTarjeta.value = arrClaveTarjeta.join('');
 })
 
-
 const handleInput = (arr, n, template)=>{
 
     const valoresAceptados = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]; 
@@ -50,13 +49,12 @@ const handleInput = (arr, n, template)=>{
         arr.pop();
         return;
     }
-    if (valoresAceptados.includes(n)) {
-        if (arr.length + 1 <= template.length) {
+    if (valoresAceptados.includes(n) && arr.length + 1 <= template.length) {
             if (template[arr.length] === '-' || template[arr.length] === '/') {
                 arr.push( template[arr.length], n )
             }else{
                 arr.push(n)
             }
-        }
+        
     }
 }
