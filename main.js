@@ -12,23 +12,15 @@ let arrFechaVencimiento = [];
 let arrClaveTarjeta = []; 
 
 inputNumeroTarjeta.addEventListener('keydown', (e)=>{
-    let numero = e.key;
-    arrNumerosTarjeta.push(numero) 
-    inputNumeroTarjeta.value = current
-    if (templateNumeroTarjeta[arrNumerosTarjeta.length] === '-' ) {
-            arrNumerosTarjeta.push('-')
-        }
-    
-    if (arrNumerosTarjeta.length >= 19) {
-            inputNumeroTarjeta.value = current
-            return current
-    }
-    current = arrNumerosTarjeta.join('')
+    let number = e.key;
+    e.preventDefault();
 
-    //renderNumero(templateNumeroTarjeta, key, arrNumerosTarjeta);
+    arrNumerosTarjeta.push(number)
     console.log(arrNumerosTarjeta)
-  
-    console.log(current)
-    //e.preventDefault();
+    handleInput(arrNumerosTarjeta)
 })
 
+
+const handleInput = (arr)=>{
+    inputNumeroTarjeta.value = arr.join('');
+}
